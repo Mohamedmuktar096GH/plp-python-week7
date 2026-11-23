@@ -16,13 +16,14 @@ for row in rows:
     if score >= 50:
         passed += 1
 
-average = round(total / len(rows), 1)
-
-with open("report.txt", "w") as f:
-    f.write("LEARNER REPORT\n")
-    f.write("Total learners: " + str(len(rows)) + "\n")
-    f.write("Passed: " + str(passed) + "\n")
-    f.write("Failed: " + str(len(rows) - passed) + "\n")
-    f.write("Average score: " + str(average) + "\n")
-
-print("Report written to report.txt")
+if rows:
+    average = round(total / len(rows), 1)
+    with open("report.txt", "w") as f:
+        f.write("LEARNER REPORT\n")
+        f.write("Total learners: " + str(len(rows)) + "\n")
+        f.write("Passed: " + str(passed) + "\n")
+        f.write("Failed: " + str(len(rows) - passed) + "\n")
+        f.write("Average score: " + str(average) + "\n")
+    print("Report written to report.txt")
+else:
+    average = 0
